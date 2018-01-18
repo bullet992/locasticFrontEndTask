@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack && webpack-dev-server --config webpack.config.js && webpack ./src/scripts/app.js ./dist/app.bundle.js",
-    "scss": "node-sass --output-style compressed -o dist/css src/scss",
+    "start": "webpack && webpack-dev-server --config webpack.config.js",
+    "scss": "node-sass --output-style compressed -o dist/css src/css",
     "autoprefixer": "postcss -u autoprefixer -r dist/css/*",
     "build:css": "npm run scss && npm run autoprefixer",
-    "uglify": "mkdir -p dist/js &amp;&amp; uglifyjs src/js/*.js -m -o dist/js/app.js &amp;&amp; uglifyjs src/js/*.js -m -c -o dist/js/app.min.js"
+    "uglify": "mkdir -p dist/scripts && uglifyjs src/scripts/*.js -m -o dist/scripts/app.js && uglifyjs src/js/*.js -m -c -o dist/scripts/app.min.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.6",
     "image-webpack-loader": "^3.4.2",
+    "jquery": "^3.2.1",
     "node-sass": "^4.7.2",
     "normalize.css": "^7.0.0",
     "postcss": "^6.0.16",

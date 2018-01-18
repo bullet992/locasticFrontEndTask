@@ -2,7 +2,6 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var path = require("path");
 var webpack = require('webpack');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
@@ -32,12 +31,10 @@ module.exports = {
                   sourceMap: true,
                   plugins: (loader) => [
                     require('postcss-import')({ root: loader.resourcePath }),
-                    require('stylelint')(),
                     require('autoprefixer'),
                     require('cssnano')({
                         preset: 'default',
                     }),
-                    require('rucksack-css'),
                     require('postcss-cssnext')
                   ],
                   config: {
@@ -72,7 +69,7 @@ module.exports = {
               }
             },
             {
-              loader: 'image-webpac-loader'
+              loader: 'image-webpack-loader'
             }
           ]
         }
@@ -96,8 +93,6 @@ module.exports = {
         }),
 
         new ExtractTextPlugin({filename:'./dist/css/style.bundle.css'}),
-
-        new CleanWebpackPlugin(['dist']),
 
         new webpack.ProvidePlugin({
             $: 'jquery',
