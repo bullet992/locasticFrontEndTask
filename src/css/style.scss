@@ -1,0 +1,9 @@
+@import "base/colors";
+@import "base/typography";
+@import "utils/mixins";
+
+html {
+  font-family: $roboto;
+  font-weight: $roboto_regular;
+}
+
